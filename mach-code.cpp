@@ -51,23 +51,9 @@ int main(){
 	// Creates a reg object
 	cpu::reg my_reg;
 
-/*	
-	// TEST
-	std::cout << "----  TEST  ----" << std::endl;
-	for(unsigned int i = 0; i < program.size(); ++i){
-		std::cout <<
-				program[i].condition		<< " " <<
-				program[i].opcode			<< " " <<
-				program[i].immediate_bit	<< " " <<
-				program[i].dest_reg			<< " " <<
-				program[i].oper1_reg		<< " " <<
-				program[i].oper2			<< " " 
-				<< std::endl;
-	}
-	std::cout << "----------------" << std::endl;
-*/
-	// Parse through instructions and ``execute" them
-	for(unsigned int i = 0; i < program.size(); ++i){
+	// Parse the instructions and ``execute" them
+	unsigned int n = program.size()
+	for(unsigned int i = 0; i < n; ++i){
 		/**
 		 *
 		 */
