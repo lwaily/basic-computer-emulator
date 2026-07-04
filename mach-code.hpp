@@ -97,7 +97,7 @@ class cpu {
 			/**
 			 * ----------  STRUCTURE  OF  THE  CPSR  --------------------------
 			 * 	Based off of how it works in ARM.
-			 * "Conditions which are used to construct conditional loops and
+			 * ``Conditions which are used to construct conditional loops and
 			 * 		other branching are based on condition flags, sometimes
 			 * 		referred to as the ALU flags stored in PSTATE, which are in
 			 * 		the global condition flag register, NZCV (shown in my ARM64
