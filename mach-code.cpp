@@ -1,7 +1,7 @@
 /**
  * Name:  Ali Alwaily
  * Date:  4 July 2026
- * About: This file acts as the "entry point" into the program. It defines the
+ * About: This file acts as the ``entry point" into the program. It defines the
  * 			incr_pr() function, initializes variables, asks for user input and
  * 			processes that, then begins "executing" those instructions.
  * 			Finally, it will return the values of all the registers and frees
