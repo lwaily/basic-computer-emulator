@@ -5,7 +5,7 @@ This project was previously an attempt to implement my own machine code coding l
 
 Just type
 ```
-make
-./Computer_EMU 
+$ make
+$ ./Computer_EMU 
 ```
 to run.
