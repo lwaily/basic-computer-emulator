@@ -8,10 +8,9 @@
 #define CE_H
 
 #include <iostream>
+#include <fstream>
+#include <vector>
 #include <cstdint>
-#include <thread>
-#include <chrono>
-#include "mach-code.hpp"
 
 #define SIZE_MB 32000000
 #define MAX_REG 16
@@ -20,18 +19,31 @@
  * Class that represents entire computer
  */
 class COMP {
-    private:
+    public:
         /**
          * storage
          */
         class storage {
             private:
-                char MAX_STORAGE[SIZE_MB];
+                /**
+                 * TODO figure out best data type for MAX_STORAGE
+                 */
+                std::vector<char> MAX_STORAGE;
             public:
+                /**
+                 * Constructor
+                 * Zero out MAX_STORAGE when no parameter passed in
+                 */
+                storage() : MAX_STORAGE(SIZE_MB, 0) {}
+                /**
+                 * Load in from file when parameter passed in
+                 */
+                storage(std::fstream & file) : MAX_STORAGE(SIZE_MB, 0) {
+                    std::cout << "LOADED\n";
+                }
                 //setter
                 //getter
         };
-    public:
         /**
         * cpu
         */
@@ -141,75 +153,39 @@ class COMP {
         /**
          * boots up computer
          */
-        void start_up() {
-            return;
-        }
+        void start_up();
+
         /**
          * displays menu options
          * @param result
          */
-        void menu_options(char & result) {
-            std::cout << "(0)  [VIEW]" << std::endl;
-            std::cout << "(1)  [CREATE NEW]" << std::endl;
-            std::cin >> result;
-        }
+        void menu_options(char & result);
+
         /**
          * view programs stored in "hard drive" file
          */
-        void view_programs() {
-            // new menu, list of programs and ...
+        void view_programs();
 
-            // 0 representing that this is a work in progress so always skip
-            if(0) {
-                //std::cout << "" << std::endl;
-                return;
-            } else {
-                std::cout << "NO PROGRAMS FOUND" << std::endl;
-                return;
-            }
-            return;
-        }
         /**
          * sets up new coding environment
          */
-        void new_program() {
-            // here, just run mach-code.cpp and add while loop
-            std::this_thread::sleep_for(std::chrono::seconds(2));
-            machine_code_emulator();
-            // would you like to save?
-            // if yes = find room in MAX_STORAGE
-            // if no = since this is in ram, when program stops running,
-            //      progress is kinda lost.
-            return;
-        }
+        void new_program();
+
         /**
          * if program was run with no arguments
          */
-        void NO_ARG(){
-            std::cout << "No Program Found" << std::endl;
-            std::cout << "Setting up New Coding Environment" << std::endl;
-            new_program();
-        }
-        /**
-        * if program was run with one arguments
-        */
-        void ONE_ARG(){
-            char result = '-';
-            // While user does not input q (for quit)
-            while(result != 'q'){
-                menu_options(result);
+        void NO_ARG();
 
-                if(result != 'q') {
-                    if(result == '0') {
-                        view_programs();
-                    } else if(result == '1') {
-                        new_program();
-                    } else {
-                        menu_options(result);
-                    }
-                }
-            }
-        }
+        /**
+         * if program was run with one argument
+         */
+        void ONE_ARG();
+
+        /**
+         * if program was run with 2 arguments
+         */
+        void TWO_ARG();
+
 };  // end of COMP class
 
 #endif
