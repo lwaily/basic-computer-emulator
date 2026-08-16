@@ -1,6 +1,6 @@
 /**
  * Name:  Ali Alwaily
- * Date:  15 August 2026
+ * Date:  16 August 2026
  * About: This file sets up the structure of the cpu class, with an inner class
  * 			called the reg class that takes care of initializing all 16
  * 			registers.
